@@ -25,7 +25,7 @@ const AboutMe = () => {
               viewport={{ once: true }}
             >
               <img
-                src=' \image\photo-lendy.png'
+                src='/image/photo-lendy.png'
                 alt='Lendy Sánchez'
                 className='rounded-2xl shadow-2xl mx-auto w-full max-w-md'
               />
