@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-import { Badge } from '@/components/ui/badge'
+import Badge from '../ui/badge'
 
 interface Project {
   title: string
@@ -67,11 +67,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <Badge
-                        key={tag}
-                        variant="secondary"
-                        className="border-purple-500/30 bg-purple-500/20 text-purple-300"
-                      >
+                      <Badge className="border-purple-500/30 bg-purple-500/20 text-purple-300">
                         {tag}
                       </Badge>
                     ))}
