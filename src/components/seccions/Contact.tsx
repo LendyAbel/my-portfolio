@@ -30,13 +30,17 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Button variant="main-colored">
-              <Mail className="mr-2" size={20} />
-              Send Message
-            </Button>
-            <Button className="border-white/20 text-white hover:bg-white/10">
-              Download Resume
-            </Button>
+            <a href="mailto:lendyabel93@gmail.com">
+              <Button variant="main-colored">
+                <Mail className="mr-2" size={20} />
+                Send Message
+              </Button>
+            </a>
+            <a href="/CV.pdf" download target="_blank" rel="noopener noreferrer">
+              <Button className="border-white/20 text-white hover:bg-white/10">
+                Download Resume
+              </Button>
+            </a>
           </motion.div>
         </motion.div>
       </div>

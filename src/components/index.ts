@@ -1,0 +1,7 @@
+export { default as AboutMe } from './seccions/AboutMe.tsx'
+export { default as Contact } from './seccions/Contact.tsx'
+export { default as Footer } from './seccions/Footer.tsx'
+export { default as Hero } from './seccions/Hero.tsx'
+export { default as Navigation } from './seccions/Navigation.tsx'
+export { default as Projects } from './seccions/Projects.tsx'
+export { default as Skills } from './seccions/Skills.tsx'

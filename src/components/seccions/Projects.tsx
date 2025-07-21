@@ -45,10 +45,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}
               className="group"
             >
-              <Card className="overflow-hidden border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+              <Card className="h-full overflow-hidden border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image || '/placeholder.svg'}
@@ -59,17 +58,39 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 </div>
                 <CardHeader>
                   <CardTitle className="text-white">{project.title}</CardTitle>
-                  <CardDescription className="text-gray-300">
+                  <CardDescription className="text-gray-300 line-clamp-2 h-10">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <Badge className="border-purple-500/30 bg-purple-500/20 text-purple-300">
+                      <Badge className="border-purple-500/30 bg-purple-500/20 text-purple-300 ">
                         {tag}
                       </Badge>
                     ))}
+                  </div>
+                  <div className="mt-4 flex items-center">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        className="m-2 text-purple-300 hover:text-purple-400 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Github
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        className="m-2 text-purple-300 hover:text-purple-400 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Live
+                      </a>
+                    )}
                   </div>
                 </CardContent>
               </Card>
