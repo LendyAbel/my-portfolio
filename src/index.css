@@ -1,6 +1,10 @@
 @import 'tailwindcss';
+:root{
+  color: hsl(0, 79%, 42%)
+}
 
 @theme {
+  --prueba: 0 79% 42%;
   --border: 220 14% 95%;
   --input: 220 14% 97%;
   --ring: 220 14% 90%;

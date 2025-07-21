@@ -5,8 +5,8 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
   plugins: [
-    tailwindcss(),
     react(),
+    tailwindcss(),
     tsconfigPaths(),
   ],
   resolve: { alias: { '@': '/src' } },
