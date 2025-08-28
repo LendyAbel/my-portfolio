@@ -1,26 +1,78 @@
 [
   {
-    "title": "E-Commerce Platform",
-    "description": "Full-stack e-commerce solution with React, Node.js, and Stripe integration",
-    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-    "tags": ["React", "Node.js", "MongoDB", "Stripe"],
-    "github": "",
+    "title": "Portfolio Website",
+    "description": "Responsive portfolio website with modern animations",
+    "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
+    "tags": ["React", "Framer Motion", "Tailwind"],
+    "github": "https://github.com/LendyAbel/my-portfolio",
+    "live": ""
+  },
+  {
+    "title": "Gallery App",
+    "description": "Full stack imagen gallery using AWS S3 for storage",
+    "image": "/image/gallery-image.png",
+    "tags": [
+      "Node.js",
+      "Express",
+      "Multer",
+      "AWS SDK (S3)",
+      "React",
+      "Vite",
+      "Framer Motion",
+      "Axios",
+      "React-Icon"
+    ],
+    "github": "https://github.com/LendyAbel/Galery",
     "live": ""
   },
   {
     "title": "Task Management App",
     "description": "Collaborative task management tool with real-time updates",
     "image": "/image/to-do-app.png",
-    "tags": ["Vite", "Socket.io", "PostgreSQL"],
+    "tags": [
+      "JWT auth",
+      "Node.js",
+      "Express",
+      "LowDB",
+      "React",
+      "Vite",
+      "Tailwind",
+      "React Router",
+      "@tanstack/react-query"
+    ],
     "github": "https://github.com/LendyAbel/to-do-list",
     "live": ""
   },
   {
-    "title": "Portfolio Website",
-    "description": "Responsive portfolio website with modern animations",
-    "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
-    "tags": ["React", "Framer Motion", "Tailwind"],
-    "github": "https://github.com/LendyAbel/my-portfolio",
+    "title": "Hostal Alicia Web",
+    "description": "Informative and booking website for Hostal Alicia",
+    "image": "/image/hostal-image.png",
+    "tags": [
+      "React",
+      "Vite",
+      "EmailJS",
+      "Google Maps API",
+      "React Router",
+      "CSS",
+      "Responsive Design"
+    ],
+    "github": "https://github.com/LendyAbel/Hostal-Project",
+    "live": ""
+  },
+  {
+    "title": "Minimalist Three-Page Website",
+    "description": "A clean, modern, and responsive three-page website template",
+    "image": "public/image/minimalistic-image.png",
+    "tags": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+      "React Router",
+      "Responsive Design",
+      "Modern UI"
+    ],
+    "github": "https://github.com/LendyAbel/minimalist_three-page_website",
     "live": ""
   }
 ]

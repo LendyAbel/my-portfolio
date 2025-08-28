@@ -4,5 +4,5 @@
   { "name": "TypeScript", "level": 85, "icon": "Code" },
   { "name": "Node.js", "level": 80, "icon": "Server" },
   { "name": "UI/UX Design", "level": 75, "icon": "Palette" },
-  { "name": "Mobile Dev", "level": 70, "icon": "Smartphone" }
+  { "name": "MongoDB", "level": 80, "icon": "Database" }
 ]

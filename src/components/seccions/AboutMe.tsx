@@ -42,15 +42,13 @@ const AboutMe = () => {
               Passionate about creating digital experiences
             </h3>
             <p className="text-lg leading-relaxed text-gray-300">
-              With over 5 years of experience in web development, I specialize
-              in building scalable applications using React, Vite, and Node.js.
-              I'm passionate about clean code, user experience, and staying
-              up-to-date with the latest technologies.
-            </p>
-            <p className="text-lg leading-relaxed text-gray-300">
-              When I'm not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or sharing knowledge with
-              the developer community.
+              Junior fullstack developer focused on building web applications
+              with React and Node.js. My main motivation is to write clean and
+              optimized code, providing the best possible user experience. I've
+              had the opportunity to develop projects in my portfolio that
+              showcase my ability to work across the stack and my enthusiasm for
+              learning and applying new technologies. I am committed to
+              continuous improvement and teamwork.
             </p>
             <div className="flex space-x-4">
               <motion.a

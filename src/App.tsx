@@ -1,4 +1,4 @@
-import { Code, Palette, Smartphone, Server } from 'lucide-react'
+import { Code, Palette, Server, Database } from 'lucide-react'
 import {
   Navigation,
   Hero,
@@ -16,7 +16,7 @@ const iconsMap = {
   Code,
   Server,
   Palette,
-  Smartphone,
+  Database,
 }
 
 const skills = skillsData.map((skill) => ({
