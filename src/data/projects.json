@@ -62,7 +62,7 @@
   {
     "title": "Minimalist Three-Page Website",
     "description": "A clean, modern, and responsive three-page website template",
-    "image": "public/image/minimalistic-image.png",
+    "image": "/image/minimalistic-image.png",
     "tags": [
       "React",
       "Vite",
