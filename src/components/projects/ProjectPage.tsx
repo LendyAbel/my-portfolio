@@ -47,11 +47,24 @@ const ProjectPage = () => {
 
       <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-lg border border-border">
-          <img
-            src={project.previewGif || project.image || '/placeholder.svg'}
-            alt={`${project.title} preview`}
-            className="w-full object-cover"
-          />
+          {project.previewVideo ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              width="960"
+              className="w-full object-cover"
+            >
+              <source src={project.previewVideo} type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              src={project.previewGif || project.image || '/placeholder.svg'}
+              alt={`${project.title} preview`}
+              className="w-full object-cover"
+            />
+          )}
         </div>
 
         <header className="mt-8">

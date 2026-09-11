@@ -9,7 +9,7 @@
       "One of the aspects I focused on most was payment reliability: instead of trusting the browser redirect after payment — which can fail, be closed, or be spoofed — the real order status is only confirmed through a cryptographically verified Stripe webhook, while the frontend polls its own backend until that status changes. This prevents orders from ever being marked as paid without a genuine server-to-server confirmation."
     ],
     "image": "/image/productos.webp",
-    "previewGif": "/image/ecommerce-preview.gif",
+    "previewVideo": "/video/ecommerce-flow.mp4",
     "screenshots": [
       { "src": "/image/ecommerce-catalog.webp", "alt": "Product catalog with search and category filters" },
       { "src": "/image/ecommerce-product.webp", "alt": "Product detail page with price and stock breakdown" },
@@ -71,7 +71,7 @@
       "The focus was on keeping the codebase small and easy to adapt: a single shared navbar layout wraps every page, animated with Framer Motion for hover and active-link effects, while each page itself stays a simple, self-contained component. It's meant to be forked and restyled quickly rather than extended into a large application."
     ],
     "image": "/image/minimalist-home.webp",
-    "previewGif": "/image/minimalist-preview.gif",
+    "previewVideo": "/video/minimalist-flow.mp4",
     "screenshots": [
       { "src": "/image/minimalist-about.webp", "alt": "About Us page with story and values sections" },
       { "src": "/image/minimalist-contact.webp", "alt": "Contact Us page with a working form" }

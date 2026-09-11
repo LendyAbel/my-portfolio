@@ -15,6 +15,7 @@ export interface Project {
   description: string
   longDescription?: string[]
   image: string
+  previewVideo?: string
   previewGif?: string
   screenshots?: ProjectScreenshot[]
   tags: string[]
