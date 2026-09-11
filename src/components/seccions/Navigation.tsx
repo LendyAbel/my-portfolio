@@ -1,52 +1,58 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Download } from 'lucide-react'
 
 interface NavigationProps {
-  scrollToSection: (sectionId: string) => void,
+  scrollToSection: (sectionId: string) => void
 }
 
-const Navigation: React.FC<NavigationProps> = ({scrollToSection }) => {
+const links = ['About', 'Skills', 'Projects', 'Contact']
+
+const Navigation: React.FC<NavigationProps> = ({ scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const scroll = (id:string) =>{
+  const scroll = (id: string) => {
     scrollToSection(id)
     setIsMenuOpen(false)
   }
 
   return (
-    <nav className='fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex justify-between items-center py-4'>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className='text-2xl font-bold text-white'
+    <nav className="border-border bg-paper/85 fixed top-0 z-50 w-full border-b backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-5">
+          <button
+            onClick={() => scroll('hero')}
+            className="font-display text-ink text-lg font-semibold tracking-tight"
           >
             Lendy Sánchez
-          </motion.div>
+          </button>
 
           {/* Desktop Navigation */}
-          <div className='hidden md:flex space-x-8'>
-            {['About', 'Skills', 'Projects', 'Contact'].map(item => (
-              <motion.button
+          <div className="hidden items-center gap-8 md:flex">
+            {links.map((item) => (
+              <button
                 key={item}
                 onClick={() => scroll(item.toLowerCase())}
-                className='text-gray-300 hover:text-white transition-colors duration-300'
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="text-ink-muted hover:text-ink text-sm transition-colors duration-200"
               >
                 {item}
-              </motion.button>
+              </button>
             ))}
+            <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
+              <button className="bg-accent hover:bg-accent-strong flex cursor-pointer flex-row items-center rounded-full px-4 py-2 text-sm font-medium text-white transition-colors duration-200">
+                <Download className="mr-2" size={16} />
+                CV
+              </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className='md:hidden text-white'
+            className="text-ink md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -54,21 +60,31 @@ const Navigation: React.FC<NavigationProps> = ({scrollToSection }) => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className='md:hidden bg-black/30 backdrop-blur-md'
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          className="border-border bg-paper border-t md:hidden"
         >
-          <div className='px-4 py-4 space-y-4'>
-            {['About', 'Skills', 'Projects', 'Contact'].map(item => (
+          <div className="space-y-4 px-4 py-5">
+            {links.map((item) => (
               <button
                 key={item}
                 onClick={() => scroll(item.toLowerCase())}
-                className='block text-gray-300 hover:text-white transition-colors duration-300 w-full text-left'
+                className="text-ink-muted hover:text-ink block w-full text-left text-sm transition-colors duration-200"
               >
                 {item}
               </button>
             ))}
+            <div className="border-border border-t pt-4">
+              <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
+                <button className="text-accent hover:text-accent-strong flex w-full cursor-pointer flex-row items-center text-left text-sm font-medium transition-colors duration-200">
+                  <Download className="mr-2" size={16} />
+                  CV
+                </button>
+              </a>
+            </div>
           </div>
+         
         </motion.div>
       )}
     </nav>

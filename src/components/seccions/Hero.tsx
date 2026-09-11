@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowDown } from 'lucide-react'
 
 import Button from '../ui/button'
 
@@ -7,79 +7,81 @@ interface HeroProps {
   scrollToSection: (sectionId: string) => void
 }
 
+const stack = ['React', 'TypeScript', 'Node.js', 'Vite']
+
 const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
-  const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20" />
-      </motion.div>
-
-      <div className="z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+    <section
+      id="hero"
+      className="relative flex min-h-screen items-center overflow-hidden pt-24"
+    >
+      <div className="mx-auto grid max-w-7xl items-center gap-16 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <motion.h1
-            className="mb-6 text-5xl font-bold text-white md:text-7xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Full Stack
-            <motion.span
-              className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Developer
-            </motion.span>
-          </motion.h1>
+          <p className="mb-5 font-mono text-sm text-accent">
+            Full stack developer
+          </p>
 
-          <motion.p
-            className="mx-auto mb-8 max-w-3xl text-xl text-gray-300 md:text-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            I create beautiful, responsive web applications with modern
-            technologies and exceptional user experiences.
-          </motion.p>
+          <h1 className="max-w-xl font-display text-5xl font-semibold leading-[1.08] tracking-tight text-ink md:text-6xl">
+            I build software that feels obvious to use.
+          </h1>
 
-          <motion.div
-            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-muted">
+            Five years turning product ideas into fast, reliable web
+            applications — from the database schema to the last pixel.
+          </p>
+
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button
+              variant="primary"
               onClick={() => scrollToSection('projects')}
-              variant="main-colored"
             >
-              View My Work
+              View my work
             </Button>
+            <Button onClick={() => scrollToSection('contact')}>
+              Get in touch
+            </Button>
+          </div>
 
-            <Button
-              onClick={() => scrollToSection('contact')}
-              className="border-white/20 text-white hover:bg-white/10"
-            >
-              Get In Touch
-            </Button>
-          </motion.div>
+          <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-border pt-6">
+            {stack.map((tech) => (
+              <span key={tech} className="font-mono text-xs text-ink-muted">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          className="relative mx-auto w-full max-w-sm"
+        >
+          <div className="overflow-hidden rounded-full  border-border bg-surface">
+            <img
+              src="/image/photo-lendy.webp"
+              alt="Lendy Sánchez"
+              className="aspect-[4/5] w-full object-cover"
+            />
+          </div>
+          <div
+            aria-hidden
+            className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-lg border border-border"
+          />
         </motion.div>
       </div>
 
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 transform"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+      <button
+        onClick={() => scrollToSection('about')}
+        aria-label="Scroll to About section"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 text-ink-muted transition-colors hover:text-ink sm:block"
       >
-        <ChevronDown className="text-white/60" size={32} />
-      </motion.div>
+        <ArrowDown size={20} />
+      </button>
     </section>
   )
 }

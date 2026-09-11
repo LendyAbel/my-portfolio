@@ -1,5 +1,117 @@
 [
   {
+    "slug": "ecommerce-voltora",
+    "title": "Voltora — E-Commerce Platform",
+    "subtitle": "Full-stack online store with real Stripe checkout",
+    "description": "Full-stack e-commerce solution with React, Node.js, and Stripe integration",
+    "longDescription": [
+      "Voltora is a full-stack online store built with a decoupled architecture: a Node.js + Express + Prisma backend exposing a REST API, and a React + Vite frontend consuming it. The project includes a complete checkout flow integrated with Stripe, order management with multiple states (pending, paid, shipped, delivered, cancelled, refunded), and database-level stock control.",
+      "One of the aspects I focused on most was payment reliability: instead of trusting the browser redirect after payment — which can fail, be closed, or be spoofed — the real order status is only confirmed through a cryptographically verified Stripe webhook, while the frontend polls its own backend until that status changes. This prevents orders from ever being marked as paid without a genuine server-to-server confirmation."
+    ],
+    "image": "/image/productos.webp",
+    "previewVideo": "/video/ecommerce-flow.mp4",
+    "screenshots": [
+      { "src": "/image/ecommerce-catalog.webp", "alt": "Product catalog with search and category filters" },
+      { "src": "/image/ecommerce-product.webp", "alt": "Product detail page with price and stock breakdown" },
+      { "src": "/image/ecommerce-cart.webp", "alt": "Shopping cart with quantity controls and subtotal" },
+      { "src": "/image/ecommerce-auth.webp", "alt": "Login and register screen" }
+    ],
+    "tags": ["React", "Node.js", "Express", "Prisma", "Stripe", "Zod"],
+    "github": "https://github.com/LendyAbel/ecommerce",
+    "live": "https://ecommerce-voltora.netlify.app/",
+    "features": [
+      "Home page with hero section, \"View products\" CTA, and a featured products carousel",
+      "Product catalog with search, sorting, and category filters (Computing, Laptops, Electronics, Mobile, Audio, Peripherals, Gaming, Tablets, Wearables, Sports, Home, Furniture, Components)",
+      "Product detail pages with SKU/brand, base price and tax-inclusive price breakdown (21% VAT), short and long descriptions, live stock indicator, and tags",
+      "Add-to-cart, wishlist, and share actions on every product",
+      "Shopping cart with per-line quantity control, item removal, subtotal calculation, and a \"Clear cart\" action",
+      "Stripe-powered checkout flow",
+      "Split login/register screen",
+      "Site-wide dark mode toggle",
+      "\"About us\" brand page with company storytelling and key metrics"
+    ],
+    "highlights": [
+      {
+        "title": "Stripe Hosted Checkout",
+        "description": "Chose Stripe's hosted payment page over embedded Elements to minimize PCI-compliance surface area and reduce implementation time."
+      },
+      {
+        "title": "Webhooks as the single source of truth",
+        "description": "Order confirmation never depends on the success URL, which a user could manipulate — only on an HMAC-signature-verified Stripe webhook."
+      },
+      {
+        "title": "Idempotent checkout sessions",
+        "description": "A client-generated Idempotency-Key prevents duplicate charges caused by double-clicks or network retries."
+      },
+      {
+        "title": "Atomic stock updates",
+        "description": "Inventory is decremented with a database-level condition (stock >= quantity) to avoid race conditions when concurrent purchases hit the same product."
+      },
+      {
+        "title": "Automatic refunds on stock conflicts",
+        "description": "If a payment is confirmed after stock ran out between session creation and confirmation, the system automatically refunds via the Stripe API and marks the order as refunded."
+      },
+      {
+        "title": "Environment validation with Zod",
+        "description": "Critical environment variables, such as Stripe keys, are validated at server startup to avoid silent failures in production."
+      },
+      {
+        "title": "Dedicated webhook middleware",
+        "description": "The Stripe endpoint uses express.raw() ahead of the global express.json(), a detail required for signature verification to work correctly."
+      }
+    ]
+  },
+  {
+    "slug": "minimalist-web",
+    "title": "Minimalist Three-Page Website",
+    "subtitle": "A clean, reusable React + TypeScript template",
+    "description": "Minimalist three-page website template with client-side routing and a clean, reusable layout",
+    "longDescription": [
+      "This project is a minimalist three-page website built with React, TypeScript, and Vite, designed as a reusable starting point for personal projects, GitHub portfolios, and quick proof-of-concept sites. It ships with a Home, About Us, and Contact Us page connected through client-side routing, so navigating between them never triggers a full page reload.",
+      "The focus was on keeping the codebase small and easy to adapt: a single shared navbar layout wraps every page, animated with Framer Motion for hover and active-link effects, while each page itself stays a simple, self-contained component. It's meant to be forked and restyled quickly rather than extended into a large application."
+    ],
+    "image": "/image/minimalist-home.webp",
+    "previewVideo": "/video/minimalist-flow.mp4",
+    "screenshots": [
+      { "src": "/image/minimalist-about.webp", "alt": "About Us page with story and values sections" },
+      { "src": "/image/minimalist-contact.webp", "alt": "Contact Us page with a working form" }
+    ],
+    "tags": ["React", "TypeScript", "Vite", "Framer Motion", "React Router"],
+    "github": "https://github.com/LendyAbel/minimalist_three-page_website",
+    "live": "https://minimalistic-web.netlify.app/",
+    "features": [
+      "Home page with a hero section and a features grid explaining the design philosophy",
+      "About Us page with a brand story section and a values grid",
+      "Contact Us page with a working form (name, email, message) and a success confirmation state",
+      "Fixed, responsive navbar with an animated active-link indicator and a mobile slide-down menu",
+      "Client-side routing between all three pages with no full page reloads"
+    ],
+    "highlights": [
+      {
+        "title": "Single shared layout",
+        "description": "A NavbarLayout component wraps every route, so the navigation bar and page transitions stay consistent without duplicating markup across pages."
+      },
+      {
+        "title": "Animated navigation state",
+        "description": "Framer Motion drives the active-route underline and link hover effects, and the mobile menu's open/close animation, using useLocation to track the current route."
+      },
+      {
+        "title": "Built to be forked",
+        "description": "The project intentionally favors a small, readable structure over configurability, making it a fast base to copy and restyle for new personal or template sites."
+      }
+    ]
+  },
+  {
+    "slug": "task-management-app",
+    "title": "Task Management App",
+    "description": "Collaborative task management tool with real-time updates",
+    "image": "/image/to-do-app.png",
+    "tags": ["Vite", "Socket.io", "PostgreSQL"],
+    "github": "https://github.com/LendyAbel/to-do-list",
+    "live": ""
+  },
+  {
+    "slug": "portfolio-website",
     "title": "Portfolio Website",
     "description": "Responsive portfolio website with modern animations",
     "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
