@@ -1,13 +1,61 @@
 [
   {
-    "title": "E-Commerce Platform",
+    "slug": "ecommerce-voltora",
+    "title": "Voltora — E-Commerce Platform",
+    "subtitle": "Full-stack online store with real Stripe checkout",
     "description": "Full-stack e-commerce solution with React, Node.js, and Stripe integration",
-    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-    "tags": ["React", "Node.js", "MongoDB", "Stripe"],
-    "github": "",
-    "live": ""
+    "longDescription": [
+      "Voltora is a full-stack online store built with a decoupled architecture: a Node.js + Express + Prisma backend exposing a REST API, and a React + Vite frontend consuming it. The project includes a complete checkout flow integrated with Stripe, order management with multiple states (pending, paid, shipped, delivered, cancelled, refunded), and database-level stock control.",
+      "One of the aspects I focused on most was payment reliability: instead of trusting the browser redirect after payment — which can fail, be closed, or be spoofed — the real order status is only confirmed through a cryptographically verified Stripe webhook, while the frontend polls its own backend until that status changes. This prevents orders from ever being marked as paid without a genuine server-to-server confirmation."
+    ],
+    "image": "/image/productos.webp",
+    "tags": ["React", "Node.js", "Express", "Prisma", "Stripe", "Zod"],
+    "github": "https://github.com/LendyAbel/ecommerce",
+    "live": "https://ecommerce-voltora.netlify.app/",
+    "features": [
+      "Home page with hero section, \"View products\" CTA, and a featured products carousel",
+      "Product catalog with search, sorting, and category filters (Computing, Laptops, Electronics, Mobile, Audio, Peripherals, Gaming, Tablets, Wearables, Sports, Home, Furniture, Components)",
+      "Product detail pages with SKU/brand, base price and tax-inclusive price breakdown (21% VAT), short and long descriptions, live stock indicator, and tags",
+      "Add-to-cart, wishlist, and share actions on every product",
+      "Shopping cart with per-line quantity control, item removal, subtotal calculation, and a \"Clear cart\" action",
+      "Stripe-powered checkout flow",
+      "Split login/register screen",
+      "Site-wide dark mode toggle",
+      "\"About us\" brand page with company storytelling and key metrics"
+    ],
+    "highlights": [
+      {
+        "title": "Stripe Hosted Checkout",
+        "description": "Chose Stripe's hosted payment page over embedded Elements to minimize PCI-compliance surface area and reduce implementation time."
+      },
+      {
+        "title": "Webhooks as the single source of truth",
+        "description": "Order confirmation never depends on the success URL, which a user could manipulate — only on an HMAC-signature-verified Stripe webhook."
+      },
+      {
+        "title": "Idempotent checkout sessions",
+        "description": "A client-generated Idempotency-Key prevents duplicate charges caused by double-clicks or network retries."
+      },
+      {
+        "title": "Atomic stock updates",
+        "description": "Inventory is decremented with a database-level condition (stock >= quantity) to avoid race conditions when concurrent purchases hit the same product."
+      },
+      {
+        "title": "Automatic refunds on stock conflicts",
+        "description": "If a payment is confirmed after stock ran out between session creation and confirmation, the system automatically refunds via the Stripe API and marks the order as refunded."
+      },
+      {
+        "title": "Environment validation with Zod",
+        "description": "Critical environment variables, such as Stripe keys, are validated at server startup to avoid silent failures in production."
+      },
+      {
+        "title": "Dedicated webhook middleware",
+        "description": "The Stripe endpoint uses express.raw() ahead of the global express.json(), a detail required for signature verification to work correctly."
+      }
+    ]
   },
   {
+    "slug": "task-management-app",
     "title": "Task Management App",
     "description": "Collaborative task management tool with real-time updates",
     "image": "/image/to-do-app.png",
@@ -16,6 +64,7 @@
     "live": ""
   },
   {
+    "slug": "portfolio-website",
     "title": "Portfolio Website",
     "description": "Responsive portfolio website with modern animations",
     "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",

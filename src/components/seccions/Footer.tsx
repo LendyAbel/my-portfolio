@@ -1,44 +1,39 @@
-import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail } from 'lucide-react'
+
 const Footer = () => {
   return (
-    <footer className="border-t border-white/10 bg-black/40 py-8">
+    <footer className="border-t border-border py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between md:flex-row">
-          <p className="mb-4 text-gray-400 md:mb-0">
-            © 2024 Lendy Sanchez. All rights reserved.
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <p className="text-sm text-ink-muted">
+            © {new Date().getFullYear()} Lendy Sánchez. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <motion.a
+          <div className="flex items-center gap-6">
+            <a
               href="https://github.com/LendyAbel"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-gray-400 transition-colors hover:text-white"
+              className="text-ink-muted transition-colors hover:text-ink"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
             >
-              <Github size={20} />
-            </motion.a>
-            <motion.a
+              <Github size={18} />
+            </a>
+            <a
               href="https://linkedin.com/in/lendy-abel-sánchez-vázquez"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-gray-400 transition-colors hover:text-white"
+              className="text-ink-muted transition-colors hover:text-ink"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
-            </motion.a>
-            <motion.a
+              <Linkedin size={18} />
+            </a>
+            <a
               href="mailto:lendyabel93@gmail.com"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-gray-400 transition-colors hover:text-white"
-              target="_blank"
-              rel="noopener noreferrer"
+              className="text-ink-muted transition-colors hover:text-ink"
+              aria-label="Email"
             >
-              <Mail size={20} />
-            </motion.a>
+              <Mail size={18} />
+            </a>
           </div>
         </div>
       </div>

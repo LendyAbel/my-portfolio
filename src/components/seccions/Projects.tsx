@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { ArrowUpRight, ArrowRight, Github } from 'lucide-react'
 
 import {
   Card,
@@ -8,93 +9,86 @@ import {
   CardTitle,
 } from '../ui/card'
 import Badge from '../ui/badge'
+import type { Project } from '../../types/project'
 
-interface Project {
-  title: string
-  description: string
-  image: string
-  tags: string[]
-  github: string
-  live: string
-}
 interface ProjectsProps {
   projects: Project[]
 }
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   return (
-    <section id="projects" className="bg-black/20 py-20">
+    <section id="projects" className="border-y border-border bg-surface py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-16 text-center"
-        >
-          <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-            Featured Projects
-          </h2>
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-purple-400 to-pink-400"></div>
-        </motion.div>
+        <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+          Featured projects
+        </h2>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="group"
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <Card
+              key={project.slug}
+              className="flex h-full flex-col overflow-hidden border-border bg-paper transition-colors duration-200 hover:border-ink/30"
             >
-              <Card className="h-full overflow-hidden border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image || '/placeholder.svg'}
-                    alt={project.title}
-                    className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <Link to={`/projects/${project.slug}`} className="overflow-hidden border-b border-border">
+                <img
+                  src={project.image || '/placeholder.svg'}
+                  alt={project.title}
+                  className="h-44 w-full object-cover transition-transform duration-200 hover:scale-105"
+                />
+              </Link>
+              <CardHeader>
+                <CardTitle className="text-lg font-semibold text-ink">
+                  <Link to={`/projects/${project.slug}`} className="transition-colors hover:text-accent">
+                    {project.title}
+                  </Link>
+                </CardTitle>
+                <CardDescription className="line-clamp-2 h-10 text-ink-muted">
+                  {project.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="mt-auto">
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <Badge
+                      key={tag}
+                      className="border-accent/20 bg-accent-tint text-accent-strong"
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-white">{project.title}</CardTitle>
-                  <CardDescription className="text-gray-300 line-clamp-2 h-10">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge className="border-purple-500/30 bg-purple-500/20 text-purple-300 ">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="mt-4 flex items-center">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        className="m-2 text-purple-300 hover:text-purple-400 hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Github
-                      </a>
-                    )}
-                    {project.live && (
-                      <a
-                        href={project.live}
-                        className="m-2 text-purple-300 hover:text-purple-400 hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Live
-                      </a>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+                <div className="mt-5 flex items-center gap-5 border-t border-border pt-4">
+                  <Link
+                    to={`/projects/${project.slug}`}
+                    className="inline-flex items-center gap-1.5 text-sm text-ink-muted transition-colors hover:text-ink"
+                  >
+                    <ArrowRight size={15} />
+                    Details
+                  </Link>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      className="inline-flex items-center gap-1.5 text-sm text-ink-muted transition-colors hover:text-ink"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github size={15} />
+                      Code
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      className="inline-flex items-center gap-1.5 text-sm text-ink-muted transition-colors hover:text-ink"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ArrowUpRight size={15} />
+                      Live site
+                    </a>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

@@ -1,90 +1,46 @@
-import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail } from 'lucide-react'
+const stats = [
+  { value: '5+', label: 'Years building products' },
+  { value: '20+', label: 'Projects shipped' },
+  { value: '4', label: 'Core languages' },
+]
+
 const AboutMe = () => {
   return (
-    <section id="about" className="bg-black/20 py-20">
+    <section id="about" className="border-y border-border bg-surface py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-16 text-center"
-        >
-          <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-            About Me
+        <div className="grid gap-12 lg:grid-cols-[0.4fr_0.6fr] lg:gap-20">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+            About me
           </h2>
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-purple-400 to-pink-400"></div>
-        </motion.div>
 
-        <div className="grid items-center gap-12 md:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <img
-              src="/image/photo-lendy.png"
-              alt="Lendy Sánchez"
-              className="mx-auto w-full max-w-md rounded-full"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <h3 className="text-2xl font-bold text-white md:text-3xl">
-              Passionate about creating digital experiences
-            </h3>
-            <p className="text-lg leading-relaxed text-gray-300">
-              With over 5 years of experience in web development, I specialize
-              in building scalable applications using React, Vite, and Node.js.
-              I'm passionate about clean code, user experience, and staying
-              up-to-date with the latest technologies.
-            </p>
-            <p className="text-lg leading-relaxed text-gray-300">
-              When I'm not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or sharing knowledge with
-              the developer community.
-            </p>
-            <div className="flex space-x-4">
-              <motion.a
-                href="https://github.com/LendyAbel"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-gray-300 transition-colors hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github size={24} />
-              </motion.a>
-              <motion.a
-                href="https://linkedin.com/in/lendy-abel-sánchez-vázquez"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-gray-300 transition-colors hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin size={24} />
-              </motion.a>
-              <motion.a
-                href="mailto:lendyabel93@gmail.com"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-gray-300 transition-colors hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Mail size={24} />
-              </motion.a>
+          <div>
+            <div className="space-y-5 text-lg leading-relaxed text-ink-muted">
+              <p>
+                I specialize in building scalable web applications with
+                React, Vite, and Node.js — with a focus on clean
+                architecture, thoughtful interfaces, and code that's easy for
+                the next person to pick up.
+              </p>
+              <p>
+                Outside of client work, I explore new tools, contribute to
+                open-source projects, and share what I learn with the
+                developer community.
+              </p>
             </div>
-          </motion.div>
+
+            <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <dd className="font-display text-3xl font-semibold text-ink">
+                    {stat.value}
+                  </dd>
+                  <dt className="mt-1 text-sm text-ink-muted">
+                    {stat.label}
+                  </dt>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       </div>
     </section>

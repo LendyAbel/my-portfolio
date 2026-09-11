@@ -1,32 +1,22 @@
 @import 'tailwindcss';
-:root{
-  color: hsl(0, 79%, 42%)
-}
 
 @theme {
-  --prueba: 0 79% 42%;
-  --border: 220 14% 95%;
-  --input: 220 14% 97%;
-  --ring: 220 14% 90%;
-  --background: 0 0% 100%;
-  --foreground: 220 14% 10%;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-  --primary: 240 100% 60%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 220 14% 80%;
-  --secondary-foreground: 220 14% 20%;
-  --destructive: 0 80% 60%;
-  --destructive-foreground: 0 0% 100%;
-  --muted: 220 14% 94%;
-  --muted-foreground: 220 14% 30%;
-  --accent: 48 100% 67%;
-  --accent-foreground: 220 14% 10%;
-  --popover: 220 14% 98%;
-  --popover-foreground: 220 14% 20%;
-  --card: 0 0% 100%;
-  --card-foreground: 220 14% 10%;
+  /* Warm, quiet neutrals + a single deliberate accent (deep pine) */
+  --color-paper: #faf9f6;
+  --color-surface: #ffffff;
+  --color-ink: #15171c;
+  --color-ink-muted: #5b6070;
+  --color-border: #e6e4de;
 
-  --radius: 0.5rem;
+  --color-accent: #1f5f4d;
+  --color-accent-strong: #143f33;
+  --color-accent-tint: #e8f1ed;
+
+  --radius: 0.625rem;
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -34,11 +24,23 @@
 
 @layer base {
   * {
-    border-color: hsl(var(--border));
+    border-color: var(--color-border);
   }
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background-color: var(--color-accent-tint);
+    color: var(--color-accent-strong);
   }
 }
 
@@ -59,12 +61,6 @@
 }
 
 @layer utilities {
-  .bg-primary {
-    background-color: var(--color-primary);
-  }
-  .text-primary-foreground {
-    color: var(--color-primary-foreground);
-  }
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
@@ -79,23 +75,17 @@
   }
 }
 
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height);
-  }
-}
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-  to {
-    height: 0;
-  }
-}
-
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -2,7 +2,7 @@
 
 Personal portfolio site built with React, TypeScript and Vite. Single-page layout with a dedicated route per project (`/projects/:slug`), animated with Framer Motion and styled with Tailwind CSS v4.
 
-**Live demo:** [_add your deployed URL here_](https://lendyabel.netlify.app/)
+**Live demo:** https://lendyabel.netlify.app/
 
 ## Sections
 
