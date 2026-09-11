@@ -48,9 +48,9 @@ const ProjectPage = () => {
       <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-lg border border-border">
           <img
-            src={project.image || '/placeholder.svg'}
-            alt={project.title}
-            className="h-64 w-full object-cover sm:h-80"
+            src={project.previewGif || project.image || '/placeholder.svg'}
+            alt={`${project.title} preview`}
+            className="w-full object-cover"
           />
         </div>
 
@@ -143,6 +143,28 @@ const ProjectPage = () => {
                   <p className="mt-1.5 leading-relaxed text-ink-muted">
                     {highlight.description}
                   </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {project.screenshots && project.screenshots.length > 0 && (
+          <section className="mt-12">
+            <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">
+              Screenshots
+            </h2>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              {project.screenshots.map((screenshot) => (
+                <div
+                  key={screenshot.src}
+                  className="overflow-hidden rounded-lg border border-border"
+                >
+                  <img
+                    src={screenshot.src}
+                    alt={screenshot.alt}
+                    className="w-full object-cover"
+                  />
                 </div>
               ))}
             </div>

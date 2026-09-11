@@ -3,6 +3,11 @@ export interface ProjectHighlight {
   description: string
 }
 
+export interface ProjectScreenshot {
+  src: string
+  alt: string
+}
+
 export interface Project {
   slug: string
   title: string
@@ -10,6 +15,8 @@ export interface Project {
   description: string
   longDescription?: string[]
   image: string
+  previewGif?: string
+  screenshots?: ProjectScreenshot[]
   tags: string[]
   github: string
   live: string

@@ -9,6 +9,13 @@
       "One of the aspects I focused on most was payment reliability: instead of trusting the browser redirect after payment — which can fail, be closed, or be spoofed — the real order status is only confirmed through a cryptographically verified Stripe webhook, while the frontend polls its own backend until that status changes. This prevents orders from ever being marked as paid without a genuine server-to-server confirmation."
     ],
     "image": "/image/productos.webp",
+    "previewGif": "/image/ecommerce-preview.gif",
+    "screenshots": [
+      { "src": "/image/ecommerce-catalog.webp", "alt": "Product catalog with search and category filters" },
+      { "src": "/image/ecommerce-product.webp", "alt": "Product detail page with price and stock breakdown" },
+      { "src": "/image/ecommerce-cart.webp", "alt": "Shopping cart with quantity controls and subtotal" },
+      { "src": "/image/ecommerce-auth.webp", "alt": "Login and register screen" }
+    ],
     "tags": ["React", "Node.js", "Express", "Prisma", "Stripe", "Zod"],
     "github": "https://github.com/LendyAbel/ecommerce",
     "live": "https://ecommerce-voltora.netlify.app/",
@@ -51,6 +58,46 @@
       {
         "title": "Dedicated webhook middleware",
         "description": "The Stripe endpoint uses express.raw() ahead of the global express.json(), a detail required for signature verification to work correctly."
+      }
+    ]
+  },
+  {
+    "slug": "minimalist-web",
+    "title": "Minimalist Three-Page Website",
+    "subtitle": "A clean, reusable React + TypeScript template",
+    "description": "Minimalist three-page website template with client-side routing and a clean, reusable layout",
+    "longDescription": [
+      "This project is a minimalist three-page website built with React, TypeScript, and Vite, designed as a reusable starting point for personal projects, GitHub portfolios, and quick proof-of-concept sites. It ships with a Home, About Us, and Contact Us page connected through client-side routing, so navigating between them never triggers a full page reload.",
+      "The focus was on keeping the codebase small and easy to adapt: a single shared navbar layout wraps every page, animated with Framer Motion for hover and active-link effects, while each page itself stays a simple, self-contained component. It's meant to be forked and restyled quickly rather than extended into a large application."
+    ],
+    "image": "/image/minimalist-home.webp",
+    "previewGif": "/image/minimalist-preview.gif",
+    "screenshots": [
+      { "src": "/image/minimalist-about.webp", "alt": "About Us page with story and values sections" },
+      { "src": "/image/minimalist-contact.webp", "alt": "Contact Us page with a working form" }
+    ],
+    "tags": ["React", "TypeScript", "Vite", "Framer Motion", "React Router"],
+    "github": "https://github.com/LendyAbel/minimalist_three-page_website",
+    "live": "https://minimalistic-web.netlify.app/",
+    "features": [
+      "Home page with a hero section and a features grid explaining the design philosophy",
+      "About Us page with a brand story section and a values grid",
+      "Contact Us page with a working form (name, email, message) and a success confirmation state",
+      "Fixed, responsive navbar with an animated active-link indicator and a mobile slide-down menu",
+      "Client-side routing between all three pages with no full page reloads"
+    ],
+    "highlights": [
+      {
+        "title": "Single shared layout",
+        "description": "A NavbarLayout component wraps every route, so the navigation bar and page transitions stay consistent without duplicating markup across pages."
+      },
+      {
+        "title": "Animated navigation state",
+        "description": "Framer Motion drives the active-route underline and link hover effects, and the mobile menu's open/close animation, using useLocation to track the current route."
+      },
+      {
+        "title": "Built to be forked",
+        "description": "The project intentionally favors a small, readable structure over configurability, making it a fast base to copy and restyle for new personal or template sites."
       }
     ]
   },
