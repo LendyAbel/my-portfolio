@@ -104,11 +104,48 @@
   {
     "slug": "task-management-app",
     "title": "Task Management App",
-    "description": "Collaborative task management tool with real-time updates",
-    "image": "/image/to-do-app.png",
-    "tags": ["Vite", "Socket.io", "PostgreSQL"],
+    "subtitle": "Full-stack to-do list with JWT auth and private per-user tasks",
+    "description": "Full-stack to-do list app with secure JWT authentication and private per-user task management",
+    "longDescription": [
+      "This is a full-stack to-do list application with user authentication, built with a decoupled architecture: a Node.js + Express backend using LowDB (a lightweight JSON-file database) for persistence, and a React + Vite + Tailwind CSS frontend. Every user registers and logs in independently, and only ever sees and manages their own private list of tasks.",
+      "Authentication is handled with JWT: passwords are hashed with bcrypt before being stored, and every task endpoint is protected by middleware that verifies the token on each request and scopes all reads and writes to the authenticated user's own data. The app also supports changing your password from within the UI, and ships with a Dockerfile and Fly.io config for deployment."
+    ],
+    "image": "/image/to-do-app.webp",
+    "previewVideo": "/video/todo-list-flow.mp4",
+    "tags": ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "JWT", "LowDB", "Framer Motion"],
     "github": "https://github.com/LendyAbel/to-do-list",
-    "live": ""
+    "live": "https://backend-to-do-list.fly.dev/login",
+    "features": [
+      "Registration and login screens with JWT-based sessions persisted in local storage",
+      "Private task list scoped to the logged-in user, with add, complete, and delete actions",
+      "Filter tasks by To Do, Done, or All",
+      "Bulk-delete mode to remove multiple tasks at once",
+      "Change-password form available from an in-app options menu",
+      "Logout action that clears the session and returns to the login screen",
+      "Smooth screen transitions and menu animations powered by Framer Motion"
+    ],
+    "highlights": [
+      {
+        "title": "Hashed passwords, never stored in plain text",
+        "description": "User passwords are hashed with bcrypt before being written to the database, and login compares the submitted password against the hash rather than storing it directly."
+      },
+      {
+        "title": "Per-user data isolation",
+        "description": "Every task is tagged with its owner's user id, and the backend only ever returns or mutates tasks belonging to the authenticated user, even though all data lives in a single shared LowDB JSON file."
+      },
+      {
+        "title": "Stateless JWT authentication",
+        "description": "A dedicated Express middleware validates the Authorization: Bearer token on every protected route before the request reaches its controller, keeping auth logic out of individual endpoints."
+      },
+      {
+        "title": "Lightweight persistence with LowDB",
+        "description": "Instead of running a full database server, the backend persists users and tasks to a JSON file via LowDB, which keeps the project simple to run and deploy for its scale."
+      },
+      {
+        "title": "Deploy-ready by default",
+        "description": "The backend includes a Dockerfile and a Fly.io configuration, and serves the built frontend as static files, so a single deployed service handles both the API and the UI."
+      }
+    ]
   },
   {
     "slug": "portfolio-website",
@@ -120,8 +157,9 @@
     "live": "https://lendyabel.com/"
   },
   {
+    "slug": "gallery-app",
     "title": "Gallery App",
-    "description": "Full stack imagen gallery using AWS S3 for storage",
+    "description": "Full stack image gallery using AWS S3 for storage",
     "image": "/image/gallery-image.png",
     "tags": [
       "Node.js",
@@ -138,24 +176,7 @@
     "live": ""
   },
   {
-    "title": "Task Management App",
-    "description": "Collaborative task management tool with real-time updates",
-    "image": "/image/to-do-app.png",
-    "tags": [
-      "JWT auth",
-      "Node.js",
-      "Express",
-      "LowDB",
-      "React",
-      "Vite",
-      "Tailwind",
-      "React Router",
-      "@tanstack/react-query"
-    ],
-    "github": "https://github.com/LendyAbel/to-do-list",
-    "live": ""
-  },
-  {
+    "slug": "hostal-alicia-web",
     "title": "Hostal Alicia Web",
     "description": "Informative and booking website for Hostal Alicia",
     "image": "/image/hostal-image.png",
@@ -170,21 +191,5 @@
     ],
     "github": "https://github.com/LendyAbel/Hostal-Project",
     "live": "https://hostal-alicia-web.netlify.app/"
-  },
-  {
-    "title": "Minimalist Three-Page Website",
-    "description": "A clean, modern, and responsive three-page website template",
-    "image": "/image/minimalistic-image.png",
-    "tags": [
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "Framer Motion",
-      "React Router",
-      "Responsive Design",
-      "Modern UI"
-    ],
-    "github": "https://github.com/LendyAbel/minimalist_three-page_website",
-    "live": "https://minimalistic-web.netlify.app/"
   }
 ]
