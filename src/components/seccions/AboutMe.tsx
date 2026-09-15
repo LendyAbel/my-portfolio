@@ -1,7 +1,7 @@
 const stats = [
-  { value: '5+', label: 'Years building products' },
-  { value: '20+', label: 'Projects shipped' },
-  { value: '4', label: 'Core languages' },
+  { value: '18+', label: 'Projects built' },
+  { value: '1.5+', label: 'Years self-taught' },
+  { value: '5+', label: 'Technologies mastered' },
 ]
 
 const AboutMe = () => {
@@ -17,7 +17,7 @@ const AboutMe = () => {
             <div className="space-y-5 text-lg leading-relaxed text-ink-muted">
               <p>
                 I specialize in building scalable web applications with
-                React, Vite, and Node.js — with a focus on clean
+                React, Vite, Node.js, and databases — with a focus on clean
                 architecture, thoughtful interfaces, and code that's easy for
                 the next person to pick up.
               </p>

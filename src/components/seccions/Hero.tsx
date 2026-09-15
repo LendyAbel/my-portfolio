@@ -26,11 +26,11 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
           </p>
 
           <h1 className="max-w-xl font-display text-5xl font-semibold leading-[1.08] tracking-tight text-ink md:text-6xl">
-            I build software that feels obvious to use.
+            End-to-end development, always designed around the people who use it.
           </h1>
 
           <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-muted">
-            Five years turning product ideas into fast, reliable web
+            Experience turning product ideas into fast, reliable web
             applications — from the database schema to the last pixel.
           </p>
 

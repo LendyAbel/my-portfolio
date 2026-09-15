@@ -4,5 +4,11 @@
   { "name": "TypeScript", "level": 85, "icon": "Code" },
   { "name": "Node.js", "level": 80, "icon": "Server" },
   { "name": "UI/UX Design", "level": 75, "icon": "Palette" },
-  { "name": "MongoDB", "level": 80, "icon": "Database" }
+  {"name": "API Integrations", "level": 80, "icon": "Blocks"},
+  { "name": "MongoDB", "level": 80, "icon": "Database" },
+  { "name": "Prisma.io", "level": 60, "icon": "Database" },
+  { "name": "Express.js", "level": 85, "icon": "Boxes" },
+  { "name": "Tailwind CSS", "level": 85, "icon": "Wind" },
+  { "name": "JWT Auth", "level": 70, "icon": "ShieldCheck" },
+  { "name": "React Query", "level": 70, "icon": "RefreshCw" }
 ]

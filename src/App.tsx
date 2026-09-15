@@ -1,4 +1,14 @@
-import { Code, Palette, Server, Database } from 'lucide-react'
+import {
+  Code,
+  Palette,
+  Server,
+  Database,
+  Blocks,
+  Boxes,
+  Wind,
+  ShieldCheck,
+  RefreshCw,
+} from 'lucide-react'
 import {
   Navigation,
   Hero,
@@ -17,6 +27,11 @@ const iconsMap = {
   Server,
   Palette,
   Database,
+  Blocks,
+  Boxes,
+  Wind,
+  ShieldCheck,
+  RefreshCw,
 }
 
 const skills = skillsData.map((skill) => ({
@@ -33,7 +48,7 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-paper">
+    <div className="bg-paper min-h-screen">
       <Navigation scrollToSection={scrollToSection} />
       <Hero scrollToSection={scrollToSection} />
       <AboutMe />
