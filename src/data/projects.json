@@ -159,21 +159,48 @@
   {
     "slug": "gallery-app",
     "title": "Gallery App",
-    "description": "Full stack image gallery using AWS S3 for storage",
-    "image": "/image/gallery-image.png",
-    "tags": [
-      "Node.js",
-      "Express",
-      "Multer",
-      "AWS SDK (S3)",
-      "React",
-      "Vite",
-      "Framer Motion",
-      "Axios",
-      "React-Icon"
+    "subtitle": "Private photo gallery backed by AWS S3",
+    "description": "Full-stack photo gallery app that stores and serves images directly from AWS S3",
+    "longDescription": [
+      "This is a full-stack photo gallery application: a Node.js + Express backend that talks directly to an AWS S3 bucket to list, upload, download, and delete images, paired with a React + Vite + Tailwind CSS frontend that presents them as a searchable, filterable gallery grouped by year. The backend is intentionally thin and has no database of its own — S3 is the single source of truth for both the files and their metadata (name, upload date, size).",
+      "The frontend focuses on making a large photo collection easy to browse: photos are grouped into year sections, filterable by album and sortable by date, with three view densities (mosaic, grid, list) and a full-screen photo viewer for downloading or deleting an image. A drag-and-drop uploader accepts image files up to 25MB, and the whole app is deployed as a single Fly.io service, with Express serving the built frontend and falling back to it for client-side routing."
     ],
+    "image": "/image/gallery-image.png",
+    "previewVideo": "/video/galeria-flow.mp4",
+    "tags": ["React", "Vite", "Tailwind CSS", "Framer Motion", "Node.js", "Express", "AWS S3", "Multer"],
     "github": "https://github.com/LendyAbel/Galery",
-    "live": ""
+    "live": "https://gallery-aws-backend.fly.dev",
+    "features": [
+      "Welcome screen as the entry point to the gallery",
+      "Photo grid grouped by year, with each year header showing a running photo count",
+      "Filter by album and sort by newest or oldest",
+      "Three view densities: mosaic, grid, and list",
+      "Drag-and-drop uploader with an image preview before confirming (JPG, PNG, GIF, or WebP, up to 25MB)",
+      "Full-screen photo viewer with download and delete actions",
+      "Loading skeletons while photos are fetched, and an empty-state screen when the gallery is empty"
+    ],
+    "highlights": [
+      {
+        "title": "S3 as the only data store",
+        "description": "The backend has no database — every photo, along with metadata like its name, size, and upload date, is read directly from S3's ListObjectsV2 response, keeping the service stateless."
+      },
+      {
+        "title": "Direct S3 streaming for downloads",
+        "description": "Downloads stream the S3 object body straight through the Express response with the right Content-Disposition and Content-Type headers, instead of buffering the whole file in memory."
+      },
+      {
+        "title": "In-memory uploads with Multer",
+        "description": "Uploaded files are held in memory via Multer and forwarded straight to S3's PutObjectCommand, avoiding temporary files on disk."
+      },
+      {
+        "title": "Single deployed service",
+        "description": "Express serves the built frontend as static files and falls back to index.html for unmatched routes, so one Fly.io deployment covers both the API and the SPA."
+      },
+      {
+        "title": "Performance-tuned photo viewer",
+        "description": "The full-screen viewer intentionally skips a backdrop-blur effect: profiling with the Performance API showed it caused several dropped frames while the photo card animates open, so the overlay uses a plain semi-transparent tint instead."
+      }
+    ]
   },
   {
     "slug": "hostal-alicia-web",
